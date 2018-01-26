@@ -22,7 +22,7 @@
     }
 
     $rss = new DOMDocument();
-    $rss->load('https://cs22120neilhouston.wordpress.com');
+    $rss->load('https://wordpress.org/news/');
     $feed = array();
     foreach ($rss->getElementsByTagName('item') as $node) {
         $item = array ( 
