@@ -22,7 +22,7 @@
     }
 
     $rss = new DOMDocument();
-    $rss->load('cs22120neilhouston.wordpress.com'); // <-- Change feed to your site
+    $rss->load('https://cs22120neilhouston.wordpress.com');
     $feed = array();
     foreach ($rss->getElementsByTagName('item') as $node) {
         $item = array ( 
@@ -34,7 +34,7 @@
         array_push($feed, $item);
     }
 
-    $limit = 3; // <-- Change the number of posts shown
+    $limit = 10; // <-- Change the number of posts shown
     for ($x=0; $x<$limit; $x++) {
         $title = str_replace(' & ', ' &amp; ', $feed[$x]['title']);
         $link = $feed[$x]['link'];
