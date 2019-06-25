@@ -1,0 +1,5 @@
+AuthName "Login"
+AuthType Basic
+AuthUserFile /customers/9/e/d/neil-houston.co.uk/httpd.www/smartMirror/.htpasswd
+AuthGroupFile /dev/null 
+require valid-user
