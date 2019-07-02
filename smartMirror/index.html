@@ -24,8 +24,10 @@
     </div>
 
     <div id="time"></div>
+    <div id="day"></div>
     <div id="date"></div>
 
+    <div id="scriptText"></div>
 
     <script>
         /* Time */
@@ -38,7 +40,17 @@
             minutes = "0" + minutes;
         }
 
+        time = "";
 
+        if (3 < hours && hours < 13) {
+            time = "morning";
+        } else if (12 < hours && hours < 21) {
+            time = "afternoon";
+        } else if (20 < hours && hours < 24 || hours == 0) {
+            time = "evening";
+        }
+
+        document.getElementById("scriptText").innerHTML = "Good " + time + ", Neil";
         document.getElementById('time').innerHTML = hours + ":" + minutes;
 
 
@@ -61,24 +73,31 @@
             return dts.getDate();
         }
 
-        document.getElementById('date').innerHTML = long_Days(dt) + " " + long_Date(dts) + " " + months[month.getMonth()];
+        document.getElementById('day').innerHTML = long_Days(dt) + " ";
+
+        document.getElementById('date').innerHTML = long_Date(dts) + " " + months[month.getMonth()];
 
 
         /* WEATHER */
         const key = 'ec31c32648242d42006847fbd1edb8ea';
 
-        function weatherBallon() {
-            fetch('https://api.openweathermap.org/data/2.5/weather?q=Ballymena' + '&appid=' + key)
-                .then(function(resp) {
-                    return resp.json()
-                }) // Convert data to json
-                .then(function(data) {
-                    drawWeather(data);
-                })
-                .catch(function() {
-                    // catch any errors
-                });
+        var getIP = 'http://ip-api.com/json/';
+
+        function weatherBallon(IP) {
+            $.getJSON(getIP).done(function(location) {
+                fetch('https://api.openweathermap.org/data/2.5/weather?q=' + location.city + '&appid=' + key)
+                    .then(function(resp) {
+                        return resp.json()
+                    }) // Convert data to json
+                    .then(function(data) {
+                        drawWeather(data);
+                    })
+                    .catch(function() {
+                        // catch any errors
+                    });
+            })
         }
+
 
         function drawWeather(d) {
             var celcius = Math.round(parseFloat(d.main.temp) - 273.15);
