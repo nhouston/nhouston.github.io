@@ -14,9 +14,9 @@
 
         if (3 < hours && hours < 13) {
             time = "morning";
-        } else if (12 < hours && hours < 21) {
+        } else if (12 < hours && hours < 18) {
             time = "afternoon";
-        } else if (20 < hours && hours < 24 || hours == 0) {
+        } else if (18 < hours && hours < 24 || hours == 0) {
             time = "evening";
         }
 
