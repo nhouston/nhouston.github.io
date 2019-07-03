@@ -13,7 +13,7 @@ body {
 }
 
 #weather {
-    float: left
+    float: right;
 }
 
 #temp {
