@@ -1,54 +1,6 @@
     $(document).ready(function () {
-
-        /* Time */
-
-        var currentTime = new Date(),
-            hours = currentTime.getHours(),
-            minutes = currentTime.getMinutes();
-
-        if (minutes < 10) {
-            minutes = "0" + minutes;
-        }
-
-        time = "";
-
-        if (3 < hours && hours < 13) {
-            time = "morning";
-        } else if (12 < hours && hours < 18) {
-            time = "afternoon";
-        } else if (18 < hours && hours < 24 || hours == 0) {
-            time = "evening";
-        }
-
-        document.getElementById("scriptText").innerHTML = "Good " + time + ", Neil";
-        document.getElementById('time').innerHTML = hours + ":" + minutes;
-
-
-        /* DAY OF THE WEEK & DATE & YEAR */
-
-
-        Date.longDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-        function long_Days(dt) {
-            return Date.longDays[dt.getDay()];
-        }
-
-        dt = new Date();
-        dts = new Date();
-        month = new Date();
-
-        function long_Date(date) {
-            return dts.getDate();
-        }
-
-        document.getElementById('day').innerHTML = long_Days(dt) + " ";
-
-        document.getElementById('date').innerHTML = long_Date(dts) + " " + months[month.getMonth()];
-
-
-        /* WEATHER */
+        
+         /* WEATHER */
         const key = 'ec31c32648242d42006847fbd1edb8ea';
 
         var getIP = 'http://ip-api.com/json/';
@@ -101,6 +53,51 @@
             document.getElementById('temp').innerHTML = celcius + '&deg;';
             document.getElementById('location').innerHTML = d.name;
 
+        /* Time */
+
+        var currentTime = new Date(),
+            hours = currentTime.getHours(),
+            minutes = currentTime.getMinutes();
+
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+
+        time = "";
+
+        if (3 < hours && hours < 13) {
+            time = "morning";
+        } else if (12 < hours && hours < 18) {
+            time = "afternoon";
+        } else if (18 < hours && hours < 24 || hours == 0) {
+            time = "evening";
+        }
+
+        document.getElementById("scriptText").innerHTML = "Good " + time + ", Neil";
+        document.getElementById('time').innerHTML = hours + ":" + minutes;
+
+
+        /* DAY OF THE WEEK & DATE & YEAR */
+
+
+        Date.longDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        function long_Days(dt) {
+            return Date.longDays[dt.getDay()];
+        }
+
+        dt = new Date();
+        dts = new Date();
+        month = new Date();
+
+        function long_Date(date) {
+            return dts.getDate();
+        }
+
+        document.getElementById('day').innerHTML = long_Days(dt) + " ";
+        document.getElementById('date').innerHTML = long_Date(dts) + " " + months[month.getMonth()];
 
         }
         window.onload = function () {
