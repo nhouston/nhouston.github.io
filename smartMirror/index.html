@@ -16,10 +16,10 @@
 <body>
     <div class="bg"></div>
     <div id="weather">
-        <div id="icon" class=""></div>
-        <div id="temp"></div>
-        <div id="description"></div>
-        <div id="location"></div>
+        <p id="icon" class=""></p>
+        <p id="temp"></p>
+        <p id="description"></p>
+        <p id="location"></p>
     </div>
     <div id="time"></div>
     <div id="day"></div>
@@ -125,6 +125,7 @@
 
             $('#icon').attr('class', "wi " + dict[iconcode]);
 
+
             document.getElementById('description').innerHTML = description;
             document.getElementById('temp').innerHTML = celcius + '&deg;';
             document.getElementById('location').innerHTML = d.name;
@@ -134,10 +135,7 @@
         window.onload = function() {
             weatherBallon(6167865);
         }
-
     </script>
 
 
-</body>
-
-</html>
+</body></html>
